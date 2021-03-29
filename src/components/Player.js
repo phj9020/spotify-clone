@@ -1,16 +1,30 @@
 import React from 'react';
 import {useStateValue} from '../dataLayer/StateProvider';
+import styled from 'styled-components';
+import Sidebar from './Sidebar';
+import Body from './Body';
+import Footer from './Footer';
 
-function Player() {
+const PlayerContainer = styled.div`
+    width: 100%;
+`
+
+const PlayerBody = styled.div`
+    display: flex;
+`
+
+function Player({spotifyApi}) {
     const {user} = useStateValue();
     console.log(user);
+    console.log(spotifyApi);
     return (
-        <div>
-            <h1>player</h1>
-            {/* header */}
-            {/* sidebar */}
-            {/* body */}
-        </div>
+        <PlayerContainer>
+            <PlayerBody>
+                <Sidebar />
+                <Body />
+            </PlayerBody>
+            <Footer />
+        </PlayerContainer>
     )
 }
 
