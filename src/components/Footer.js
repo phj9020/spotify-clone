@@ -11,9 +11,8 @@ import VolumeDownIcon from '@material-ui/icons/VolumeDown';
 import Slider from '@material-ui/core/Slider';
 
 const FooterContainer = styled.div`
-    width: 98%;
+    width: 100%;
     height:65px;
-    background-color: blue;
     position: fixed;
     bottom: 0;
     background-color: #282828;

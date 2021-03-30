@@ -21,7 +21,7 @@ function Player({spotifyApi}) {
         <PlayerContainer>
             <PlayerBody>
                 <Sidebar />
-                <Body />
+                <Body spotifyApi={spotifyApi} />
             </PlayerBody>
             <Footer />
         </PlayerContainer>
