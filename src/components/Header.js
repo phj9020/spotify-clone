@@ -11,7 +11,6 @@ const HeaderContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
-    padding: 10px;
 `
 
 const HeaderLeft = styled.div`
@@ -36,7 +35,6 @@ const HeaderLeft = styled.div`
 const HeaderRight = styled.div`
     display: flex;
     align-items: center;
-    margin-right: 20px;
     background-color:#040404;
     border-radius: 30px;
     padding: 5px 10px;
@@ -55,7 +53,7 @@ const HeaderRight = styled.div`
 
 function Header({spotifyApi}) {
     const {user} = useStateValue();
-    console.log(user)
+
     return (
         <HeaderContainer>
             <HeaderLeft>

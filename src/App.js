@@ -4,12 +4,13 @@ import {getTokenFromUrl} from './spotify';
 import SpotifyWebApi from 'spotify-web-api-js';
 import Player from './components/Player';
 import {useDispatch} from './dataLayer/StateProvider';
-import {SETUSER, SETTOKEN, SETPLAYLIST} from './dataLayer/reducer';
+import {SETUSER, SETTOKEN, SETPLAYLIST, SETDISCOVER} from './dataLayer/reducer';
 import {useStateValue} from './dataLayer/StateProvider';
 
 // create spotify instance
 const spotifyApi = new SpotifyWebApi();
 
+const device_id = '127cf1f9d2db22860b242eee4ac961e0d64081d3'
 
 function App() {
   const dispatch = useDispatch();
@@ -35,8 +36,12 @@ function App() {
       spotifyApi.getUserPlaylists().then(playlist => {
         dispatch({type: SETPLAYLIST, playlist: playlist})
       })
-    }
 
+      spotifyApi.getPlaylist("2BT6JKWp3rCFBbCz8mZpjG").then(response => {
+        dispatch({type: SETDISCOVER, discover_weekly: response})
+      })
+
+    }
   }, [dispatch]);
 
   return (

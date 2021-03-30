@@ -6,9 +6,10 @@ import SearchIcon from '@material-ui/icons/Search';
 import LibraryMusicOutlinedIcon from '@material-ui/icons/LibraryMusicOutlined';
 import {useStateValue} from '../dataLayer/StateProvider';
 
+
 const SidebarContainer = styled.div`
     flex: 0.15;
-    min-height: 100vh;
+    height: 100vh;
     min-width: 230px;
     background-color: #040404;
     color: white;
@@ -45,7 +46,7 @@ function Sidebar() {
             <SidebarOption title="Search" Icon={SearchIcon} />
             <SidebarOption title="Your Library" Icon={LibraryMusicOutlinedIcon} />
             <br />
-            <strong>PlayLists</strong>
+            <strong>PLAYLIST</strong>
             <hr />
             {playlist?.items?.map(playList => <SidebarOption key={playList.id} title={playList.name} />)}
         </SidebarContainer>
