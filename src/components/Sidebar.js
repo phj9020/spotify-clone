@@ -4,15 +4,18 @@ import SidebarOption from './SidebarOption';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import SearchIcon from '@material-ui/icons/Search';
 import LibraryMusicOutlinedIcon from '@material-ui/icons/LibraryMusicOutlined';
-
+import {useStateValue} from '../dataLayer/StateProvider';
 
 const SidebarContainer = styled.div`
     flex: 0.15;
-    height: 100vh;
+    min-height: 100vh;
     min-width: 230px;
     background-color: #040404;
     color: white;
-    padding: 30px 10px;
+    padding-top: 30px;
+    padding-bottom: 105px;
+    padding-left: 10px;
+    padding-right:10px;
 
     img {
         height: 45px;
@@ -33,6 +36,8 @@ const SidebarContainer = styled.div`
 
 
 function Sidebar() {
+    const {playlist} = useStateValue();
+    console.log(playlist)
     return (
         <SidebarContainer>
             <img src={require("../image/Spotify_Logo.png").default} alt="logo" />
@@ -42,9 +47,7 @@ function Sidebar() {
             <br />
             <strong>PlayLists</strong>
             <hr />
-            <SidebarOption title="My Play List" />
-            <SidebarOption title="My Play List" />
-            <SidebarOption title="My Play List" />
+            {playlist?.items?.map(playList => <SidebarOption key={playList.id} title={playList.name} />)}
         </SidebarContainer>
     )
 }

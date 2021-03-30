@@ -4,7 +4,7 @@ import {getTokenFromUrl} from './spotify';
 import SpotifyWebApi from 'spotify-web-api-js';
 import Player from './components/Player';
 import {useDispatch} from './dataLayer/StateProvider';
-import {SETUSER, SETTOKEN} from './dataLayer/reducer';
+import {SETUSER, SETTOKEN, SETPLAYLIST} from './dataLayer/reducer';
 import {useStateValue} from './dataLayer/StateProvider';
 
 // create spotify instance
@@ -30,6 +30,11 @@ function App() {
       spotifyApi.getMe().then(user => {
         dispatch({type: SETUSER, user: user })
       });
+
+      // get User PlayList and store in global state 
+      spotifyApi.getUserPlaylists().then(playlist => {
+        dispatch({type: SETPLAYLIST, playlist: playlist})
+      })
     }
 
   }, [dispatch]);

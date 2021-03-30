@@ -21,6 +21,10 @@ const SidebarOptionContainer = styled.div`
     h4 {
         font-weight: 400;
     }
+    
+    p {
+        font-size: 14px;
+    }
 `
 
 function SidebarOption({Icon, title}) {

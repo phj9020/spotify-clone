@@ -1,6 +1,7 @@
 
 export const SETUSER = 'set_user';
 export const SETTOKEN = 'set_token';
+export const SETPLAYLIST = 'set_playlist'
 
 export const initialState = {
     user: null,
@@ -20,6 +21,10 @@ const reducer = (state, action) => {
         case SETTOKEN: 
             return{
                 ...state, token: action.token
+            }
+        case SETPLAYLIST: 
+            return {
+                ...state, playlist: action.playlist
             }
         default:
             return;
